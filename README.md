@@ -1,3 +1,3 @@
 # Neron
 
-A description of this package.
+Neron makes iOS Auto Layout easy.
