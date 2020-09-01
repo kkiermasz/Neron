@@ -14,7 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build
-      run: xcodebuild -showdestinations -scheme Neron
+      run: xcodebuild -scheme Neron \
+       -destination 'platform=iOS Simulator,OS=13.6,name=iPhone 11 Pro'
       
       
   test:
@@ -23,4 +24,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Test
-      run: xcodebuild -showdestinations -scheme NeronTests
+      run: xcodebuild -scheme Neron \
+      -destination 'platform=iOS Simulator,OS=13.6,name=iPhone 11 Pro' \
+      test
