@@ -27,5 +27,5 @@ jobs:
     - name: Test
       run: |
         xcodebuild -scheme Neron \
-        -destination generic/platform=tvOS \
+        -destination 'platform=tvOS Simulator,name=Apple TV 4K,OS=latest' \
         test

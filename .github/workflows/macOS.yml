@@ -27,6 +27,6 @@ jobs:
     - name: Test
       run: |
         xcodebuild -scheme Neron \
-        -destination generic/platform=macOS \
+        -destination 'platform=OS X,arch=x86_64' \
         test
 

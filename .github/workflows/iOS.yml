@@ -27,5 +27,5 @@ jobs:
     - name: Test
       run: |
         xcodebuild -scheme Neron \
-        -destination generic/platform=iOS \
+        -destination 'platform=iOS Simulator,name=iPhone 11,OS=latest' \
         test
