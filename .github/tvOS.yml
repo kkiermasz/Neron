@@ -1,4 +1,4 @@
-name: iOS
+name: tvOS
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
     - name: Build
       run: |
         xcodebuild -scheme Neron \
-        -destination generic/platform=iOS
+        -destination generic/platform=tvOS
       
       
   test:
@@ -27,5 +27,5 @@ jobs:
     - name: Test
       run: |
         xcodebuild -scheme Neron \
-        -destination generic/platform=iOS \
+        -destination generic/platform=tvOS \
         test

@@ -1,63 +1,75 @@
 //
-//  File.swift
-//  
+//  ViewLayout.swift
+//
 //
 //  Created by jaki on 13/08/2020.
 //
 
-import UIKit
+#if canImport(UIKit)
+    import UIKit
+#else
+    import AppKit
+#endif
 
-public final class ViewLayout: Layout, LayoutInvoker {
+final class ViewLayout: ViewLayoutConfiguration, Layout {
     
     // MARK: - Properties
     
-    public private(set) lazy var xAxis: AxisLayout = ViewAxisLayout(for: view, axis: .xAxis, invoker: self)
-    public private(set) lazy var yAxis: AxisLayout = ViewAxisLayout(for: view, axis: .yAxis, invoker: self)
+    var xAxis: AxisLayout { ViewAxisLayout(for: view, axis: .xAxis, invoker: self, container: container) }
+    var yAxis: AxisLayout { ViewAxisLayout(for: view, axis: .yAxis, invoker: self, container: container) }
     
-    public private(set) lazy var width: DimensionLayout = ViewDimensionLayout(for: view, anchor: .width, invoker: self)
-    public private(set) lazy var height: DimensionLayout = ViewDimensionLayout(for: view, anchor: .height, invoker: self)
+    var width: DimensionLayout { ViewDimensionLayout(for: view, anchor: .width, invoker: self, container: container) }
+    var height: DimensionLayout { ViewDimensionLayout(for: view, anchor: .height, invoker: self, container: container) }
     
-    private let view: UIView
+    var leading: XAxisLayout { ViewXAxisLayout(for: view, anchor: .leading, invoker: self, container: container) }
+    var trailing: XAxisLayout { ViewXAxisLayout(for: view, anchor: .trailing, invoker: self, container: container) }
     
-    private var constraintsToActivate: [NSLayoutConstraint] = []
+    var top: YAxisLayout { ViewYAxisLayout(for: view, anchor: .top, invoker: self, container: container) }
+    var bottom: YAxisLayout { ViewYAxisLayout(for: view, anchor: .bottom, invoker: self, container: container) }
+    
+    private let view: View
+    private let container: ConstraintsContainer
     
     // MARK: - Initializers
     
-    public init(of view: UIView) {
-        self.view = view
+    convenience init(of view: View) {
+        self.init(for: view, with: DefaultConstraintsContainer())
     }
     
-    // MARK: - Layout
+    init(for view: View, with container: ConstraintsContainer) {
+        self.view = view
+        self.container = container
+    }
+    
+    // MARK: - LayoutConfiguration
     
     @discardableResult
-    public func add(to parent: UIView) -> Self {
+    func add(to parent: View) -> Self {
         parent.addSubview(view)
         view.translatesAutoresizingMaskIntoConstraints = false
         return self
     }
     
+    // MARK: - ViewLayoutConfiguration
+    
     @discardableResult
-    public func add(subviews: UIView...) -> Self {
+    func add(subviews: View...) -> ViewLayoutConfiguration {
         add(subviews: subviews)
         return self
     }
     
-    // MARK: - LayoutInvoker
+    // MARK: - Layout
     
-    func activate() {
-        NSLayoutConstraint.activate(constraintsToActivate)
-        constraintsToActivate = []
-    }
-    
-    func endorse(_ constraint: NSLayoutConstraint) {
-        constraintsToActivate.append(constraint)
-    }
-    
-    func add(subviews: [UIView]) {
+    func add(subviews: [View]) {
         subviews.forEach { subview in
             view.addSubview(subview)
             subview.translatesAutoresizingMaskIntoConstraints = false
         }
+    }
+    
+    func activate() -> Layout {
+        container.activate()
+        return self
     }
     
 }

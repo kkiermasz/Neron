@@ -1,4 +1,4 @@
-// swift-tools-version:5.2
+// swift-tools-version:5.1
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -6,22 +6,18 @@ import PackageDescription
 let package = Package(
     name: "Neron",
     platforms: [
-        .iOS(.v11)
+        .iOS(.v11),
+        .macOS(.v10_11),
+        .tvOS(.v11),
     ],
     products: [
         .library(
             name: "Neron",
             targets: ["Neron"]),
     ],
-    dependencies: [
-        .package(url: "https://github.com/Quick/Nimble", from: "8.1.1")
-    ],
     targets: [
-        .target(
-            name: "Neron",
-            dependencies: []),
+        .target(name: "Neron"),
         .testTarget(
             name: "NeronTests",
-            dependencies: ["Neron", "Nimble"]),
-    ]
-)
+            dependencies: ["Neron"]),
+    ])
