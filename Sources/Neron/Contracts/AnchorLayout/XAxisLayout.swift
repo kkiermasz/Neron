@@ -1,30 +1,50 @@
 //
 //  XAxisLayout.swift
-//  
+//
 //
 //  Created by jaki on 04/09/2020.
 //
 
 #if canImport(UIKit)
-    import UIKit
-#else
-    import AppKit
-#endif
+import UIKit
 
 public protocol XAxisLayout {
     
     @discardableResult
-    func equalTo(_ sibling: View, _ anchor: LayoutAnchor.XAxis) -> ConstraintMultiplier
+    func equalTo(_ sibling: UIView, _ anchor: LayoutAnchor.XAxis) -> ConstraintMultiplier
     @discardableResult
-    func lessThanOrEqualTo(_ sibling: View, _ anchor: LayoutAnchor.XAxis) -> ConstraintMultiplier
+    func lessThanOrEqualTo(_ sibling: UIView, _ anchor: LayoutAnchor.XAxis) -> ConstraintMultiplier
     @discardableResult
-    func greaterThanOrEqualTo(_ sibling: View, _ anchor: LayoutAnchor.XAxis) -> ConstraintMultiplier
+    func greaterThanOrEqualTo(_ sibling: UIView, _ anchor: LayoutAnchor.XAxis) -> ConstraintMultiplier
     
     @discardableResult
-    func equalTo(_ layoutGuide: LayoutGuide, _ anchor: LayoutAnchor.XAxis) -> ConstraintMultiplier
+    func equalTo(_ layoutGuide: UILayoutGuide, _ anchor: LayoutAnchor.XAxis) -> ConstraintMultiplier
     @discardableResult
-    func lessThanOrEqualTo(_ layoutGuide: LayoutGuide, _ anchor: LayoutAnchor.XAxis) -> ConstraintMultiplier
+    func lessThanOrEqualTo(_ layoutGuide: UILayoutGuide, _ anchor: LayoutAnchor.XAxis) -> ConstraintMultiplier
     @discardableResult
-    func greaterThanOrEqualTo(_ layoutGuide: LayoutGuide, _ anchor: LayoutAnchor.XAxis) -> ConstraintMultiplier
+    func greaterThanOrEqualTo(_ layoutGuide: UILayoutGuide, _ anchor: LayoutAnchor.XAxis) -> ConstraintMultiplier
     
 }
+
+#else
+
+import AppKit
+
+public protocol XAxisLayout {
+    
+    @discardableResult
+    func equalTo(_ sibling: NSView, _ anchor: LayoutAnchor.XAxis) -> ConstraintMultiplier
+    @discardableResult
+    func lessThanOrEqualTo(_ sibling: NSView, _ anchor: LayoutAnchor.XAxis) -> ConstraintMultiplier
+    @discardableResult
+    func greaterThanOrEqualTo(_ sibling: NSView, _ anchor: LayoutAnchor.XAxis) -> ConstraintMultiplier
+    
+    @discardableResult
+    func equalTo(_ layoutGuide: NSLayoutGuide, _ anchor: LayoutAnchor.XAxis) -> ConstraintMultiplier
+    @discardableResult
+    func lessThanOrEqualTo(_ layoutGuide: NSLayoutGuide, _ anchor: LayoutAnchor.XAxis) -> ConstraintMultiplier
+    @discardableResult
+    func greaterThanOrEqualTo(_ layoutGuide: NSLayoutGuide, _ anchor: LayoutAnchor.XAxis) -> ConstraintMultiplier
+    
+}
+#endif
