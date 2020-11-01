@@ -1,9 +1,7 @@
 //
-//  ViewLayout.swift
+//  Copyright © 2020 Jakub Kiermasz. All rights reserved.
 //
-//
-//  Created by jaki on 13/08/2020.
-//
+
 
 #if canImport(UIKit)
     import UIKit
@@ -67,7 +65,7 @@ final class ViewLayout: ViewLayoutConfiguration, Layout {
         }
     }
     
-    func activate() -> Layout {
+    func activate() -> Self {
         container.activate()
         return self
     }

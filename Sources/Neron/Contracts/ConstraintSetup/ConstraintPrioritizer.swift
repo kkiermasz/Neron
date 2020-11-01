@@ -1,8 +1,5 @@
 //
-//  ConstraintPrioritizer.swift
-//
-//
-//  Created by jaki on 04/09/2020.
+//  Copyright © 2020 Jakub Kiermasz. All rights reserved.
 //
 
 #if canImport(UIKit)

@@ -1,9 +1,7 @@
 //
-//  LayoutResult.swift
-//  
+//  Copyright © 2020 Jakub Kiermasz. All rights reserved.
 //
-//  Created by jaki on 13/08/2020.
-//
+
 
 #if canImport(UIKit)
     import UIKit
@@ -15,7 +13,12 @@ public protocol LayoutResult: Layout {
     
     // MARK: - Properties
     
-    /// Added constraint
+    /// Last added constraint
     var constraint: NSLayoutConstraint { get }
+    
+    /// Added constraints
+    ///
+    /// - Warning: The array contains both inactive and active constrains. Calling `activate()` activates only previously added constraints.
+    var constraints: [NSLayoutConstraint] { get }
     
 }
