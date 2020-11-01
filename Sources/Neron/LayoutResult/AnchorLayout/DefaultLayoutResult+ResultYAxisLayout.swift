@@ -1,9 +1,7 @@
 //
-//  DefaultLayoutResult+ResultYAxisLayout.swift
-//  
+//  Copyright © 2020 Jakub Kiermasz. All rights reserved.
 //
-//  Created by jaki on 07/09/2020.
-//
+
 
 #if canImport(UIKit)
     import UIKit

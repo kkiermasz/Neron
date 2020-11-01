@@ -1,9 +1,7 @@
 //
-//  LayoutGuideLayout.swift
+//  Copyright © 2020 Jakub Kiermasz. All rights reserved.
 //
-//
-//  Created by jaki on 08/09/2020.
-//
+
 
 #if canImport(UIKit)
     import UIKit
@@ -49,7 +47,7 @@ final class LayoutGuideLayout: LayoutConfiguration, Layout {
         return self
     }
     
-    func activate() -> Layout {
+    func activate() -> Self {
         container.activate()
         return self
     }

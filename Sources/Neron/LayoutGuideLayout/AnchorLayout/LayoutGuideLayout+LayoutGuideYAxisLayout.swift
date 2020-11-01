@@ -1,9 +1,7 @@
 //
-//  LayoutGuideLayout+LayoutGuideYAxisLayout.swift
+//  Copyright © 2020 Jakub Kiermasz. All rights reserved.
 //
-//
-//  Created by jaki on 08/09/2020.
-//
+
 
 #if canImport(UIKit)
     import UIKit
@@ -34,7 +32,11 @@ extension LayoutGuideLayout {
         // MARK: - XAxisLayout
         
         func equalTo(_ sibling: View, _ anchor: LayoutAnchor.YAxis) -> ConstraintMultiplier {
-            let constraint = LayoutConstraint(item: layoutGuide, itemAttribute: self.anchor.attribute, relation: .equal, target: sibling, targetAttribute: anchor.attribute)
+            let constraint = LayoutConstraint(item: layoutGuide,
+                                              itemAttribute: self.anchor.attribute,
+                                              relation: .equal,
+                                              target: sibling,
+                                              targetAttribute: anchor.attribute)
             return makePrioritizer(for: endorse(constraint))
         }
         
@@ -57,12 +59,16 @@ extension LayoutGuideLayout {
         }
         
         func equalTo(_ layoutGuide: LayoutGuide, _ anchor: LayoutAnchor.YAxis) -> ConstraintMultiplier {
-            let constraint = LayoutConstraint(item: layoutGuide, itemAttribute: self.anchor.attribute, relation: .equal, target: layoutGuide, targetAttribute: anchor.attribute)
+            let constraint = LayoutConstraint(item: self.layoutGuide,
+                                              itemAttribute: self.anchor.attribute,
+                                              relation: .equal,
+                                              target: layoutGuide,
+                                              targetAttribute: anchor.attribute)
             return makePrioritizer(for: endorse(constraint))
         }
         
         func lessThanOrEqualTo(_ layoutGuide: LayoutGuide, _ anchor: LayoutAnchor.YAxis) -> ConstraintMultiplier {
-            let constraint = LayoutConstraint(item: layoutGuide,
+            let constraint = LayoutConstraint(item: self.layoutGuide,
                                               itemAttribute: self.anchor.attribute,
                                               relation: .lessThanOrEqual,
                                               target: layoutGuide,
@@ -71,7 +77,7 @@ extension LayoutGuideLayout {
         }
         
         func greaterThanOrEqualTo(_ layoutGuide: LayoutGuide, _ anchor: LayoutAnchor.YAxis) -> ConstraintMultiplier {
-            let constraint = LayoutConstraint(item: layoutGuide,
+            let constraint = LayoutConstraint(item: self.layoutGuide,
                                               itemAttribute: self.anchor.attribute,
                                               relation: .greaterThanOrEqual,
                                               target: layoutGuide,

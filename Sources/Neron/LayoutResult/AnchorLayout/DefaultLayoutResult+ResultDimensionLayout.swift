@@ -1,9 +1,7 @@
 //
-//  DefaultLayoutResult+ResultDimensionLayout.swift
+//  Copyright © 2020 Jakub Kiermasz. All rights reserved.
 //
-//
-//  Created by jaki on 13/08/2020.
-//
+
 
 #if canImport(UIKit)
     import UIKit

@@ -1,9 +1,7 @@
 //
-//  View+Layout.swift
-//  
+//  Copyright © 2020 Jakub Kiermasz. All rights reserved.
 //
-//  Created by jaki on 14/08/2020.
-//
+
 
 #if canImport(UIKit)
     import UIKit
