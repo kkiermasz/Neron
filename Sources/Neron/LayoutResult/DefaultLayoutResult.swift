@@ -1,9 +1,7 @@
 //
-//  File.swift
+//  Copyright © 2020 Jakub Kiermasz. All rights reserved.
 //
-//
-//  Created by jaki on 13/08/2020.
-//
+
 
 #if canImport(UIKit)
     import UIKit
@@ -21,7 +19,8 @@ final class DefaultLayoutResult: ConstraintMultiplier {
     
     // MARK: - Getters
     
-    var constraint: NSLayoutConstraint { NSLayoutConstraint(wrapping: constraintPrototype) }
+    var constraint: NSLayoutConstraint { container.getConstraint(for: constraintPrototype) }
+    var constraints: [NSLayoutConstraint] { container.getConstraints() }
     
     var xAxis: AxisLayout { ResultAxisLayout(axis: .xAxis, invoker: invoker) }
     var yAxis: AxisLayout { ResultAxisLayout(axis: .yAxis, invoker: invoker) }
@@ -45,7 +44,7 @@ final class DefaultLayoutResult: ConstraintMultiplier {
     
     // MARK: - Layout
     
-    func activate() -> Layout {
+    func activate() -> Self {
         container.activate()
         return self
     }

@@ -1,9 +1,7 @@
 //
-//  Layout.swift
-//  
+//  Copyright © 2020 Jakub Kiermasz. All rights reserved.
 //
-//  Created by jaki on 13/08/2020.
-//
+
 
 public protocol Layout {
     
@@ -33,6 +31,6 @@ public protocol Layout {
     ///
     /// - Returns: Layout with cleared collection of constraints to activate
     @discardableResult
-    func activate() -> Layout
+    func activate() -> Self
     
 }

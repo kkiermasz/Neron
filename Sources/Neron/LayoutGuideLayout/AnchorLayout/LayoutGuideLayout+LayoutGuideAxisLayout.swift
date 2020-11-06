@@ -1,9 +1,7 @@
 //
-//  LayoutGuideLayout+LayoutGuideAxisLayout.swift
-//  
+//  Copyright © 2020 Jakub Kiermasz. All rights reserved.
 //
-//  Created by jaki on 08/09/2020.
-//
+
 
 #if canImport(UIKit)
     import UIKit
@@ -39,7 +37,7 @@ extension LayoutGuideLayout {
         }
         
         func center(with layoutGuide: LayoutGuide) -> LayoutResult {
-            let constraint = LayoutConstraint(item: layoutGuide, itemAttribute: axis.attribute, relation: .equal, target: layoutGuide, targetAttribute: axis.attribute)
+            let constraint = LayoutConstraint(item: self.layoutGuide, itemAttribute: axis.attribute, relation: .equal, target: layoutGuide, targetAttribute: axis.attribute)
             return makePrioritizer(for: endorse(constraint))
         }
         

@@ -1,9 +1,7 @@
 //
-//  NSLayoutConstraint+Initializers.swift
+//  Copyright © 2020 Jakub Kiermasz. All rights reserved.
 //
-//
-//  Created by jaki on 10/09/2020.
-//
+
 
 #if canImport(UIKit)
     import UIKit
@@ -21,6 +19,9 @@ extension NSLayoutConstraint {
                   attribute: prototype.targetAttribute,
                   multiplier: prototype.multiplier,
                   constant: prototype.constant)
+        if let priority = prototype.priority {
+            self.priority = priority
+        }
     }
 
 }

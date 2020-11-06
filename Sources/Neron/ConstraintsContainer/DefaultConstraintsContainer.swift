@@ -1,9 +1,7 @@
 //
-//  DefaultConstraintsContainer.swift
-//  
+//  Copyright © 2020 Jakub Kiermasz. All rights reserved.
 //
-//  Created by jaki on 11/09/2020.
-//
+
 
 #if canImport(UIKit)
     import UIKit
@@ -15,7 +13,8 @@ final class DefaultConstraintsContainer: ConstraintsContainer {
     
     // MARK: - Properties
     
-    private var constraintPrototypes: [LayoutConstraint] = []
+    private var constraintPrototypes = [LayoutConstraint]()
+    private var constraints = [NSLayoutConstraint]()
     
     // MARK: - ConstraintsContainer
     
@@ -23,14 +22,31 @@ final class DefaultConstraintsContainer: ConstraintsContainer {
         constraintPrototypes.append(constraint)
     }
     
-    func makeConstraint(for prototype: LayoutConstraint) -> NSLayoutConstraint {
-        constraintPrototypes.removeAll(where: { suspect in suspect === prototype })
-        return NSLayoutConstraint(wrapping: prototype)
+    func activate() {
+        translateConstraintPrototypes()
+        NSLayoutConstraint.activate(constraints)
     }
     
-    func activate() {
-        let constraints = constraintPrototypes.map { prototype in NSLayoutConstraint(wrapping: prototype) }
-        NSLayoutConstraint.activate(constraints)
+    func getConstraints() -> [NSLayoutConstraint] {
+        translateConstraintPrototypes()
+        return constraints
+    }
+    
+    func getConstraint(for prototype: LayoutConstraint) -> NSLayoutConstraint{
+        let constraint = map(prototype)
+        constraints.append(constraint)
+        return constraint
+    }
+    
+    // MARK: - Private
+    
+    private func map(_ constraintPrototype: LayoutConstraint) -> NSLayoutConstraint {
+        constraintPrototypes.removeAll(where: { suspect in suspect ===  constraintPrototype })
+        return NSLayoutConstraint.init(wrapping: constraintPrototype)
+    }
+    
+    private func translateConstraintPrototypes() {
+        constraints.append(contentsOf: constraintPrototypes.map(NSLayoutConstraint.init(wrapping:)))
         constraintPrototypes.removeAll()
     }
     

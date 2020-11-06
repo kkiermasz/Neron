@@ -1,9 +1,7 @@
 //
-//  ConstraintsContainer.swift
-//  
+//  Copyright © 2020 Jakub Kiermasz. All rights reserved.
 //
-//  Created by jaki on 11/09/2020.
-//
+
 
 #if canImport(UIKit)
     import UIKit
@@ -16,7 +14,9 @@ protocol ConstraintsContainer {
     // MARK: - API
     
     func add(_ constraint: LayoutConstraint)
-    func makeConstraint(for prototype: LayoutConstraint) -> NSLayoutConstraint
     func activate()
+    
+    func getConstraints() -> [NSLayoutConstraint]
+    func getConstraint(for prototype: LayoutConstraint) -> NSLayoutConstraint
     
 }

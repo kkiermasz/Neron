@@ -1,9 +1,7 @@
 //
-//  LayoutGuide+Layout.swift
-//  
+//  Copyright © 2020 Jakub Kiermasz. All rights reserved.
 //
-//  Created by jaki on 08/09/2020.
-//
+
 
 #if canImport(UIKit)
     import UIKit

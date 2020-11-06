@@ -1,8 +1,5 @@
 //
-//  LayoutAnchor+XAxis.swift
-//  
-//
-//  Created by jaki on 10/09/2020.
+//  Copyright © 2020 Jakub Kiermasz. All rights reserved.
 //
 
 #if canImport(UIKit)
