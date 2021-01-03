@@ -70,4 +70,18 @@ final class ViewLayout: ViewLayoutConfiguration, Layout {
         return self
     }
     
+    @discardableResult
+    func embed(in parent: View, with padding: CGFloat) -> Self {
+        leading.equalTo(parent, .leading).with(constant: padding)
+        trailing.equalTo(parent, .trailing).with(constant: -padding)
+        top.equalTo(parent, .top).with(constant: padding)
+        bottom.equalTo(parent, .bottom).with(constant: -padding)
+        return self
+    }
+    
+    func embed(in parent: View) -> Self {
+        embed(in: parent, with: 0)
+        return self
+    }
+    
 }
