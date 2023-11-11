@@ -12,7 +12,7 @@
 extension DefaultLayoutResult {
     
     final class ResultDimensionLayout: DimensionLayout {
-        
+
         // MARK: - Properties
         
         private let anchor: LayoutAnchor.Dimension
@@ -57,7 +57,19 @@ extension DefaultLayoutResult {
         func greaterThanOrEqualTo(_ sibling: View, _ anchor: LayoutAnchor.Dimension) -> ConstraintMultiplier {
             invokerLayout.greaterThanOrEqualTo(sibling, anchor)
         }
-        
+
+        func equalTo(_ layoutGuide: LayoutGuide, _ anchor: LayoutAnchor.Dimension) -> ConstraintMultiplier {
+            invokerLayout.equalTo(layoutGuide, anchor)
+        }
+
+        func lessThanOrEqualTo(_ layoutGuide: LayoutGuide, _ anchor: LayoutAnchor.Dimension) -> ConstraintMultiplier {
+            invokerLayout.lessThanOrEqualTo(layoutGuide, anchor)
+        }
+
+        func greaterThanOrEqualTo(_ layoutGuide: LayoutGuide, _ anchor: LayoutAnchor.Dimension) -> ConstraintMultiplier {
+            invokerLayout.greaterThanOrEqualTo(layoutGuide, anchor)
+        }
+
     }
     
 }

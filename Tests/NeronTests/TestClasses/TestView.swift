@@ -2,15 +2,14 @@
 //  Copyright © 2020 Jakub Kiermasz. All rights reserved.
 //
 
-
 @testable import Neron
 
 final class TestView: View {
 
     // MARK: - Properties
 
-    let width: CGFloat = 200
-    let height: CGFloat = 200
+    let width: CGFloat
+    let height: CGFloat
     
     // MARK: - Getters
 
@@ -26,7 +25,9 @@ final class TestView: View {
 
     // MARK: - Initialization
 
-    init() {
+    init(width: CGFloat = 200, height: CGFloat = 200) {
+        self.width = width
+        self.height = height
         super.init(frame: CGRect(x: 0, y: 0, width: width, height: height))
     }
 

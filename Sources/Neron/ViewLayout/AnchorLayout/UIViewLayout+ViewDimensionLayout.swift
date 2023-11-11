@@ -60,7 +60,22 @@ extension ViewLayout {
             let constraint = LayoutConstraint(item: view, itemAttribute: self.anchor.attribute, relation: .greaterThanOrEqual, target: sibling, targetAttribute: anchor.attribute)
             return makePrioritizer(for: endorse(constraint))
         }
-        
+
+        func equalTo(_ layoutGuide: LayoutGuide, _ anchor: LayoutAnchor.Dimension) -> ConstraintMultiplier {
+            let constraint = LayoutConstraint(item: view, itemAttribute: self.anchor.attribute, relation: .equal, target: layoutGuide, targetAttribute: anchor.attribute)
+            return makePrioritizer(for: endorse(constraint))
+        }
+
+        func lessThanOrEqualTo(_ layoutGuide: LayoutGuide, _ anchor: LayoutAnchor.Dimension) -> ConstraintMultiplier {
+            let constraint = LayoutConstraint(item: view, itemAttribute: self.anchor.attribute, relation: .lessThanOrEqual, target: layoutGuide, targetAttribute: anchor.attribute)
+            return makePrioritizer(for: endorse(constraint))
+        }
+
+        func greaterThanOrEqualTo(_ layoutGuide: LayoutGuide, _ anchor: LayoutAnchor.Dimension) -> ConstraintMultiplier {
+            let constraint = LayoutConstraint(item: view, itemAttribute: self.anchor.attribute, relation: .greaterThanOrEqual, target: layoutGuide, targetAttribute: anchor.attribute)
+            return makePrioritizer(for: endorse(constraint))
+        }
+
         // MARK: - Private
         
         private func endorse(_ constraint: LayoutConstraint) -> LayoutConstraint {
