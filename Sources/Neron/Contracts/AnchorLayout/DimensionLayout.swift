@@ -31,6 +31,15 @@ public protocol DimensionLayout {
     @discardableResult
     func greaterThanOrEqualTo(_ sibling: UIView, _ anchor: LayoutAnchor.Dimension) -> ConstraintMultiplier
 
+    @discardableResult
+    func equalTo(_ layoutGuide: UILayoutGuide, _ anchor: LayoutAnchor.Dimension) -> ConstraintMultiplier
+
+    @discardableResult
+    func lessThanOrEqualTo(_ layoutGuide: UILayoutGuide, _ anchor: LayoutAnchor.Dimension) -> ConstraintMultiplier
+
+    @discardableResult
+    func greaterThanOrEqualTo(_ layoutGuide: UILayoutGuide, _ anchor: LayoutAnchor.Dimension) -> ConstraintMultiplier
+
     #else
 
     @discardableResult
@@ -41,6 +50,15 @@ public protocol DimensionLayout {
 
     @discardableResult
     func greaterThanOrEqualTo(_ sibling: NSView, _ anchor: LayoutAnchor.Dimension) -> ConstraintMultiplier
+
+    @discardableResult
+    func equalTo(_ layoutGuide: NSLayoutGuide, _ anchor: LayoutAnchor.Dimension) -> ConstraintMultiplier
+
+    @discardableResult
+    func lessThanOrEqualTo(_ layoutGuide: NSLayoutGuide, _ anchor: LayoutAnchor.Dimension) -> ConstraintMultiplier
+
+    @discardableResult
+    func greaterThanOrEqualTo(_ layoutGuide: NSLayoutGuide, _ anchor: LayoutAnchor.Dimension) -> ConstraintMultiplier
 
     #endif
 

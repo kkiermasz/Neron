@@ -60,7 +60,6 @@ final class ViewLayout_Layout_Dimension_Tests: XCTestCase {
     
     func test_Height_EqualToSibling() {
         let view = TestView()
-        print(parent.frame)
         let constraint = view.layout
             .add(to: parent)
             .height.equalTo(parent, .height)
@@ -73,30 +72,73 @@ final class ViewLayout_Layout_Dimension_Tests: XCTestCase {
     
     func test_Height_LessThanOrEqualToSibling() {
         let view = TestView()
-        print(parent.frame)
         let constraint = view.layout
             .add(to: parent)
-            .height.equalTo(parent, .height)
+            .height.lessThanOrEqualTo(parent, .height)
             .activate()
             .constraint
         parent.prepare()
         XCTAssertLessThanOrEqual(view.frame.height, 200, "Height should be 200")
-        XCTAssertEqual(constraint.relation, .equal, "Relation should be lessThanOrEqual")
+        XCTAssertEqual(constraint.relation, .lessThanOrEqual, "Relation should be lessThanOrEqual")
     }
     
     func test_Height_GreaterThanOrEqualToSibling() {
         let view = TestView()
-        print(parent.frame)
         let constraint = view.layout
             .add(to: parent)
-            .height.equalTo(parent, .height)
+            .height.greaterThanOrEqualTo(parent, .height)
             .activate()
             .constraint
         parent.prepare()
         XCTAssertGreaterThanOrEqual(view.frame.height, 200, "Height should be 200")
-        XCTAssertEqual(constraint.relation, .equal, "Relation should be greaterThanOrEqual")
+        XCTAssertEqual(constraint.relation, .greaterThanOrEqual, "Relation should be greaterThanOrEqual")
     }
-    
+
+    func test_Height_EqualToLayoutGuide() {
+        let height: CGFloat = 150
+        let parent = TestView(height: height)
+        let guide = parent.layoutGuide
+        let view = TestView()
+        let constraint = view.layout
+            .add(to: parent)
+            .height.equalTo(guide, .height)
+            .activate()
+            .constraint
+        parent.prepare()
+        XCTAssertEqual(view.frame.height, height, "Height should be \(height)")
+        XCTAssertEqual(constraint.relation, .equal, "Relation should be equal")
+    }
+
+    func test_Height_LessThanOrEqualToLayoutGuide() {
+        let height: CGFloat = 150
+        let parent = TestView(height: height)
+        let guide = parent.layoutGuide
+        let view = TestView()
+        let constraint = view.layout
+            .add(to: parent)
+            .height.lessThanOrEqualTo(guide, .height)
+            .activate()
+            .constraint
+        parent.prepare()
+        XCTAssertLessThanOrEqual(view.frame.height, height, "Height should be \(height)")
+        XCTAssertEqual(constraint.relation, .lessThanOrEqual, "Relation should be lessThanOrEqual")
+    }
+
+    func test_Height_GreaterThanOrEqualToLayoutGuide() {
+        let height: CGFloat = 150
+        let parent = TestView(height: height)
+        let guide = parent.layoutGuide
+        let view = TestView()
+        let constraint = view.layout
+            .add(to: parent)
+            .height.greaterThanOrEqualTo(guide, .height)
+            .activate()
+            .constraint
+        parent.prepare()
+        XCTAssertGreaterThanOrEqual(view.frame.height, height, "Height should be \(height)")
+        XCTAssertEqual(constraint.relation, .greaterThanOrEqual, "Relation should be greaterThanOrEqual")
+    }
+
     // MARK: - Width
     
     func test_Width_EqualToConstant() {
@@ -137,7 +179,6 @@ final class ViewLayout_Layout_Dimension_Tests: XCTestCase {
     
     func test_Width_EqualToSibling() {
         let view = TestView()
-        print(parent.frame)
         let constraint = view.layout
             .add(to: parent)
             .width.equalTo(parent, .width)
@@ -150,28 +191,71 @@ final class ViewLayout_Layout_Dimension_Tests: XCTestCase {
     
     func test_Width_LessThanOrEqualToSibling() {
         let view = TestView()
-        print(parent.frame)
         let constraint = view.layout
             .add(to: parent)
-            .width.equalTo(parent, .width)
+            .width.lessThanOrEqualTo(parent, .width)
             .activate()
             .constraint
         parent.prepare()
         XCTAssertLessThanOrEqual(view.frame.width, 200, "Width should be 200")
-        XCTAssertEqual(constraint.relation, .equal, "Relation should be lessThanOrEqual")
+        XCTAssertEqual(constraint.relation, .lessThanOrEqual, "Relation should be lessThanOrEqual")
     }
     
     func test_Width_GreaterThanOrEqualToSibling() {
         let view = TestView()
-        print(parent.frame)
         let constraint = view.layout
             .add(to: parent)
-            .width.equalTo(parent, .width)
+            .width.greaterThanOrEqualTo(parent, .width)
             .activate()
             .constraint
         parent.prepare()
         XCTAssertGreaterThanOrEqual(view.frame.width, 200, "Width should be 200")
-        XCTAssertEqual(constraint.relation, .equal, "Relation should be greaterThanOrEqual")
+        XCTAssertEqual(constraint.relation, .greaterThanOrEqual, "Relation should be greaterThanOrEqual")
     }
-    
+
+    func test_Width_EqualToLayoutGuide() {
+        let width: CGFloat = 150
+        let parent = TestView(width: width)
+        let guide = parent.layoutGuide
+        let view = TestView()
+        let constraint = view.layout
+            .add(to: parent)
+            .width.equalTo(guide, .width)
+            .activate()
+            .constraint
+        parent.prepare()
+        XCTAssertEqual(view.frame.width, width, "Width should be \(width)")
+        XCTAssertEqual(constraint.relation, .equal, "Relation should be equal")
+    }
+
+    func test_Width_LessThanOrEqualToLayoutGuide() {
+        let width: CGFloat = 150
+        let parent = TestView(width: width)
+        let guide = parent.layoutGuide
+        let view = TestView()
+        let constraint = view.layout
+            .add(to: parent)
+            .width.lessThanOrEqualTo(guide, .width)
+            .activate()
+            .constraint
+        parent.prepare()
+        XCTAssertLessThanOrEqual(view.frame.width, width, "Width should be \(width)")
+        XCTAssertEqual(constraint.relation, .lessThanOrEqual, "Relation should be lessThanOrEqual")
+    }
+
+    func test_Width_GreaterThanOrEqualToLayoutGuide() {
+        let width: CGFloat = 150
+        let parent = TestView(width: width)
+        let guide = parent.layoutGuide
+        let view = TestView()
+        let constraint = view.layout
+            .add(to: parent)
+            .width.greaterThanOrEqualTo(guide, .width)
+            .activate()
+            .constraint
+        parent.prepare()
+        XCTAssertGreaterThanOrEqual(view.frame.width, width, "Width should be \(width)")
+        XCTAssertEqual(constraint.relation, .greaterThanOrEqual, "Relation should be greaterThanOrEqual")
+    }
+
 }

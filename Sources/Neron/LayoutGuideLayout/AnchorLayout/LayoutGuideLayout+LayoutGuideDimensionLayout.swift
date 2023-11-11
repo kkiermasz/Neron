@@ -12,7 +12,7 @@
 extension LayoutGuideLayout {
     
     final class LayoutGuideDimensionLayout: DimensionLayout {
-        
+
         // MARK: - Properties
         
         private let anchor: LayoutAnchor.Dimension
@@ -47,7 +47,11 @@ extension LayoutGuideLayout {
         }
         
         func equalTo(_ sibling: View, _ anchor: LayoutAnchor.Dimension) -> ConstraintMultiplier {
-            let constraint = LayoutConstraint(item: layoutGuide, itemAttribute: self.anchor.attribute, relation: .equal, target: sibling, targetAttribute: anchor.attribute)
+            let constraint = LayoutConstraint(item: layoutGuide,
+                                              itemAttribute: self.anchor.attribute,
+                                              relation: .equal,
+                                              target: sibling,
+                                              targetAttribute: anchor.attribute)
             return makePrioritizer(for: endorse(constraint))
         }
         
@@ -68,7 +72,34 @@ extension LayoutGuideLayout {
                                               targetAttribute: anchor.attribute)
             return makePrioritizer(for: endorse(constraint))
         }
-        
+
+        func equalTo(_ layoutGuide: LayoutGuide, _ anchor: LayoutAnchor.Dimension) -> ConstraintMultiplier {
+            let constraint = LayoutConstraint(item: self.layoutGuide,
+                                              itemAttribute: self.anchor.attribute,
+                                              relation: .equal,
+                                              target: layoutGuide,
+                                              targetAttribute: anchor.attribute)
+            return makePrioritizer(for: endorse(constraint))
+        }
+
+        func lessThanOrEqualTo(_ layoutGuide: LayoutGuide, _ anchor: LayoutAnchor.Dimension) -> ConstraintMultiplier {
+            let constraint = LayoutConstraint(item: self.layoutGuide,
+                                              itemAttribute: self.anchor.attribute,
+                                              relation: .lessThanOrEqual,
+                                              target: layoutGuide,
+                                              targetAttribute: anchor.attribute)
+            return makePrioritizer(for: endorse(constraint))
+        }
+
+        func greaterThanOrEqualTo(_ layoutGuide: LayoutGuide, _ anchor: LayoutAnchor.Dimension) -> ConstraintMultiplier {
+            let constraint = LayoutConstraint(item: self.layoutGuide,
+                                              itemAttribute: self.anchor.attribute,
+                                              relation: .greaterThanOrEqual,
+                                              target: layoutGuide,
+                                              targetAttribute: anchor.attribute)
+            return makePrioritizer(for: endorse(constraint))
+        }
+
         // MARK: - Private
         
         private func endorse(_ constraint: LayoutConstraint) -> LayoutConstraint {
