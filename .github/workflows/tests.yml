@@ -22,15 +22,15 @@ jobs:
                 - platform: iOS
                   destination: platform=iOS Simulator,name=iPhone 11,OS=latest
                 - platform: tvOS
-                  destination: platform=tvOS Simulator,name=Apple TV 4K,OS=latest
+                  destination: platform=tvOS Simulator,name=Apple TV 4K (3rd generation),OS=latest
         steps:
           - name: Setup xcode version
-            uses: maxim-lobanov/setup-xcode@v1.2.1
+            uses: maxim-lobanov/setup-xcode@v1.6.0
             with:
                 xcode-version: latest-stable
           - name: Checkout
-            uses: actions/checkout@v2
-          - name: Run ${{ matrix.platform}} tests
+            uses: actions/checkout@v4
+          - name: Run ${{ matrix.platform }} tests
             run: |
                 xcodebuild -scheme Neron \
                 -destination '${{ matrix.destination }}' \
