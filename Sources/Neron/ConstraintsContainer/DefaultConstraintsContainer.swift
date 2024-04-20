@@ -32,7 +32,7 @@ final class DefaultConstraintsContainer: ConstraintsContainer {
         return constraints
     }
     
-    func getConstraint(for prototype: LayoutConstraint) -> NSLayoutConstraint{
+    func getConstraint(for prototype: LayoutConstraint) -> NSLayoutConstraint {
         let constraint = map(prototype)
         constraints.append(constraint)
         return constraint

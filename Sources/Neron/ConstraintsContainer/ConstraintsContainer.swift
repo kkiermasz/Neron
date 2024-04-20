@@ -9,7 +9,7 @@
     import AppKit
 #endif
 
-protocol ConstraintsContainer {
+protocol ConstraintsContainer: AnyObject {
     
     // MARK: - API
     

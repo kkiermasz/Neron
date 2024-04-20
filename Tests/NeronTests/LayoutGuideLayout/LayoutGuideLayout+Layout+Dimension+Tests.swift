@@ -95,7 +95,7 @@ final class LayoutGuideLayout_Layout_Dimension_Tests: XCTestCase {
     }
 
     func test_Height_EqualToLayoutGuide() {
-        let height: CGFloat = 150
+        let height: CGFloat = 250
         let parent = TestView(height: height)
         let parentGuide = parent.layoutGuide
         let guide = LayoutGuide()
@@ -110,7 +110,7 @@ final class LayoutGuideLayout_Layout_Dimension_Tests: XCTestCase {
     }
 
     func test_Height_LessThanOrEqualToLayoutGuide() {
-        let height: CGFloat = 150
+        let height: CGFloat = 250
         let parent = TestView(height: height)
         let parentGuide = parent.layoutGuide
         let guide = LayoutGuide()
@@ -125,7 +125,7 @@ final class LayoutGuideLayout_Layout_Dimension_Tests: XCTestCase {
     }
 
     func test_Height_GreaterThanOrEqualToLayoutGuide() {
-        let height: CGFloat = 150
+        let height: CGFloat = 250
         let parent = TestView(height: height)
         let parentGuide = parent.layoutGuide
         let guide = LayoutGuide()
@@ -214,7 +214,7 @@ final class LayoutGuideLayout_Layout_Dimension_Tests: XCTestCase {
     }
 
     func test_Width_EqualToLayoutGuide() {
-        let width: CGFloat = 150
+        let width: CGFloat = 250
         let parent = TestView(width: width)
         let parentGuide = parent.layoutGuide
         let guide = LayoutGuide()
@@ -229,7 +229,7 @@ final class LayoutGuideLayout_Layout_Dimension_Tests: XCTestCase {
     }
 
     func test_Width_LessThanOrEqualToLayoutGuide() {
-        let width: CGFloat = 150
+        let width: CGFloat = 250
         let parent = TestView(width: width)
         let parentGuide = parent.layoutGuide
         let guide = LayoutGuide()
@@ -244,7 +244,7 @@ final class LayoutGuideLayout_Layout_Dimension_Tests: XCTestCase {
     }
 
     func test_Width_GreaterThanOrEqualToLayoutGuide() {
-        let width: CGFloat = 150
+        let width: CGFloat = 250
         let parent = TestView(width: width)
         let parentGuide = parent.layoutGuide
         let guide = LayoutGuide()
